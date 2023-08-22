@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+    Home
+{% endblock %}
+
+{% block conteudo %}
+    <div class="py-5">
+        <header class="h-100 p-5 text-white bg-dark text-center justify-content-center align-items-center">
+            <h1 class="display-5 fw-bold">App Market</h1>
+            <p class="fs-4">Bem vindo à aplicação. Para acessar a página de produtos, clique no botão abaixo.</p>
+            <a class="btn btn-success" type="button" href="{{url_for('page_produto')}}">Iniciar</a>
+        </header>
+    </div>
+{% endblock %}

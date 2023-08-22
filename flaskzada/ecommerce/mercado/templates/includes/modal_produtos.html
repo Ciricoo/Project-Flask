@@ -1,0 +1,53 @@
+<style>
+  .modal-content {
+    background-color: #212121;
+  }
+</style>
+
+<div class="modal fade" id="exampleModal-{{item.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{item.nome}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {{item.descricao}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModalCompra-{{item.id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{item.id}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <form method="POST">
+          {{ compra_form.hidden_tag() }}
+          <h4>
+            Deseja comprar o produto {{ item.nome }} por R$ {{ item.preco }}?
+          </h4>
+          <br>
+          <h6>
+            Clique no botão comprar, para comprar este produto
+          </h6>
+          <br>
+          <input id="compra_produto" name="compra_produto" type="hidden" value="{{ item.nome }}">
+          {{ compra_form.submit(class="btn btn-outline-success btn-block")}}
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

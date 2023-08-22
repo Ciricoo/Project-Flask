@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device.width, inicial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <title>Cadastro</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Ecommerce</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav me-auto">
+                    <a class="nav-link" href="{{url_for('page_home')}}">Home</a>
+                    <a class="nav-link" href="{{url_for('page_produto')}}">Produtos</a>
+                </div>
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link" href="{{url_for('page_login')}}">Login</a>
+                    <a class="nav-link active" aria-current="page" href="{{url_for('page_cadastro')}}">Cadastro</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{category}} alert-dismissable fade show", role="alert">
+                    <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="alert"
+                    aria-label="Close">
+                    </button>
+                {{message}}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    {% block conteudo %}
+
+    {% endblock %}
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+</body>
+
+<body class="text-center">
+    <div class="container">
+        <img class="mb-4" src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png" style="width: 200px;">
+        <h1 class="h3 mb-3 font-weight-normal">
+            Por favor, crie a sua conta
+        </h1>
+        <form method="POST" class="form-register" style="color: whitesmoke;">
+            
+            {{form.hidden_tag()}}
+            
+            {{form.usuario.label()}}
+            {{form.usuario(class="form-control", placeholder="Informe o seu username")}}
+
+            {{form.email.label()}}
+            {{form.email(class="form-control", placeholder="Informe o seu email")}}
+
+            {{form.senha1.label()}}
+            {{form.senha1(class="form-control", placeholder="Informe a sua senha")}}
+
+            {{form.senha2.label()}}
+            {{form.senha2(class="form-control", placeholder="Confirme a sua senha")}}
+            <br>
+            <div clas="checkbox mb-3">
+                <h5>Você já possui um cadastro?</h5>
+                <a class="btn btn-sm btn-secondary" href="{{url_for('page_login')}}">Log In</a>
+            </div>
+            <br>
+            
+            <div class="d-grid">
+                {{form.submit(class="btn btn-lg btn-success")}}
+            </div>
+
+        </form>
+    </div>
+</body>
+
+</html>
+<style>
+    body{
+        background-color: #212121;
+        color:white;
+    }
+</style></title>
+</head>
+<body>
+
+</body>
+</html>
